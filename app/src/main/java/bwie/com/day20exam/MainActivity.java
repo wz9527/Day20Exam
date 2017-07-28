@@ -2,13 +2,10 @@ package bwie.com.day20exam;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.ImageSpan;
 import android.view.View;
 import android.view.Window;
 import android.widget.CheckBox;
@@ -16,10 +13,14 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bawei.pay.PayDemoActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import bwie.com.day20exam.adapter.ShopcartExpandableListViewAdapter;
 import bwie.com.day20exam.entity.GroupInfo;
 import bwie.com.day20exam.entity.ProductInfo;
@@ -142,12 +143,14 @@ public class MainActivity extends AppCompatActivity implements  ShopcartExpandab
                     @Override
                     public void onClick(DialogInterface dialog, int which)
                     {
-                        SpannableString spannableString = new SpannableString("支付成功（表情）");
-                        Drawable drawable = getResources().getDrawable(R.mipmap.haha);
-                        drawable.setBounds(0, 0, 42, 42);
-                        ImageSpan imageSpan = new ImageSpan(drawable);
-                        spannableString.setSpan(imageSpan, 4, 8, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                        Toast.makeText(MainActivity.this, spannableString, Toast.LENGTH_SHORT).show();
+//                                          SpannableString spannableString = new SpannableString("支付成功（表情）");
+//                        Drawable drawable = getResources().getDrawable(R.mipmap.haha);
+//                        drawable.setBounds(0, 0, 42, 42);
+//                        ImageSpan imageSpan = new ImageSpan(drawable);
+//                        spannableString.setSpan(imageSpan, 4, 8, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+//                        Toast.makeText(MainActivity.this, spannableString, Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this,PayDemoActivity.class));
+
 
                         return;
                     }
